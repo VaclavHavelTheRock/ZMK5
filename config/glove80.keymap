@@ -113,8 +113,8 @@ ZMK_HOLD_TAP(hmr,
             tap-ms = <30>;
             bindings
                 // CTRL(C T)
-                = <&macro_press &kp K>
-                // = <&macro_press &hello_world>
+                // = <&macro_press &kp K>
+                = <&macro_press &hello_world>
                 // , <&macro_tap &kp C &kp T>
                 // , <&macro_release &kp LCTRL>
 
@@ -243,9 +243,9 @@ ZMK_HOLD_TAP(hmr,
         };
     };
 
-    // chosen {
-    //     zmk,charmap = &charmap_us;
-    // };
+    chosen {
+        zmk,charmap = &charmap_us;
+    };
 
     behaviors {
         hello_world: hello_world {
