@@ -93,6 +93,14 @@ ZMK_HOLD_TAP(hmr,
 
 
 / {
+    behaviors {
+        hello_world: hello_world {
+            compatible = "zmk,behavior-send-string";
+            #binding-cells = <0>;
+            text = "Hello, world!";
+        };
+    };
+
     macros {
         search: search_highlighted_selection {
             compatible = "zmk,behavior-macro";
