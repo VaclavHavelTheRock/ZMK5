@@ -122,7 +122,7 @@ ZMK_HOLD_TAP(hmr,
             bindings
                 // CTRL(C T)
                 // = <&macro_press &kp K>
-                = <&macro_press &hello_world>
+                = <&hello_world>
                 // , <&macro_tap &kp C &kp T>
                 // , <&macro_release &kp LCTRL>
 
