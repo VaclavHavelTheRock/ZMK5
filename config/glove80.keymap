@@ -93,13 +93,6 @@ ZMK_HOLD_TAP(hmr,
 
 
 / {
-    behaviors {
-        hello_world: hello_world {
-            compatible = "zmk,behavior-send-string";
-            #binding-cells = <0>;
-            text = "Hello, world!";
-        };
-    };
 
     macros {
         search: search_highlighted_selection {
@@ -121,8 +114,8 @@ ZMK_HOLD_TAP(hmr,
             tap-ms = <30>;
             bindings
                 // CTRL(C T)
-                = <&macro_press &kp K>
-                // = <&hello_world>
+                // = <&macro_press &kp K>
+                = <&hello_world>
                 // , <&macro_tap &kp C &kp T>
                 // , <&macro_release &kp LCTRL>
 
