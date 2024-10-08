@@ -243,9 +243,9 @@ ZMK_HOLD_TAP(hmr,
         };
     };
 
-    chosen {
-        zmk,charmap = &charmap_us;
-    };
+    // chosen {
+    //     zmk,charmap = &charmap_us;
+    // };
 
     behaviors {
         hello_world: hello_world {
