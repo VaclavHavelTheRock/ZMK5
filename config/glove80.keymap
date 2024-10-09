@@ -57,6 +57,7 @@
 // customs
 #define NSHFT   RSHIFT TAB
 #define NCTRL   LCTRL SP
+#define SFSP    LSHFT SP
 
 #define BLU        170
 #define GRN         85
@@ -233,13 +234,13 @@ ZMK_HOLD_TAP(hmr,
                 , <&macro_tap &rgb_ug RGB_COLOR_HSB(BLU, SAT, BRT)>
                 ;
         };
-        turbo: turbo_mouse_click {
+        dblsp: double_space {
             compatible = "zmk,behavior-macro";
             // wait-ms = <5>;
             // tap-ms = <5>;
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK>
+                = <&macro_tap &kp SPC &kp SPC>
                 ;
         };
     };
@@ -426,10 +427,10 @@ ZMK_HOLD_TAP(hmr,
                 &kp ESC   &kp DOWN  &kp UP    &nleft    &nrght    XXXXXXXXX                                                               XXXXXXXXX &kp DOWN  &kp UP    &nleft    &nrght    &kp ESC
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┬─────────┬─────────┐ ┌─────────┬─────────┬─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |    `    |    Z    |    X    |    C    |    V    |    B    |  PGUP   |  PGDN   | DELETE  | |   ALT   |  HOME   |   END   |    N    |    M    |    ,    |    .    |    /    |    ;    |
-                XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX _________ _________ _________   _________ _________ _________ XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX &to_num
+                XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX &dblsp    _________ _________   _________ _________ &dblsp    XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX &to_num
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤ ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |  MAGIC  |    [    |    ]    |  LEFT   |  RIGHT  |         | Control |  LAYER  |  ENTER  | |   GUI   |BACKSPACE|  SHIFT  |         |   UP    |  DOWN   |  LEFT   |  RIGHT  |  PGDN   |
-                XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX           _________ _________ _________   _________ _________ &turbo              XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX
+                XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX           &mt SFSP  &kp ENTER _________   _________ &kp ENTER &mt SFSP            XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX
             // └─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┘ └─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┘
             >;
         };
