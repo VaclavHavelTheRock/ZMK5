@@ -236,8 +236,8 @@ ZMK_HOLD_TAP(hmr,
         };
         dblsp: double_space {
             compatible = "zmk,behavior-macro";
-            // wait-ms = <5>;
-            // tap-ms = <5>;
+            wait-ms = <30>;
+            tap-ms = <30>;
             #binding-cells = <0>;
             bindings
                 = <&macro_tap &kp SPC &kp SPC>
@@ -415,7 +415,7 @@ ZMK_HOLD_TAP(hmr,
             bindings = <
             // ┌─────────┬─────────┬─────────┬─────────┬─────────┐                                                                                 ┌─────────┬─────────┬─────────┬─────────┬─────────┐
             // |    F1   |    F2   |    F3   |    F4   |    F5   |                                                                                 |    F6   |    F7   |    F8   |    F9   |    F10  |
-                &bt CLR   XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                                                                                   XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX
+                &to_hom   XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                                                                                   XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐                                                             ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |   GUI   |    1    |    2    |    3    |    4    |    5    |                                                             |    6    |    7    |    8    |    9    |    0    |    \    |
                 XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                                                               XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX
