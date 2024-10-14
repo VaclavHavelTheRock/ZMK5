@@ -56,7 +56,7 @@
 
 // customs
 #define NSHFT   RSHIFT TAB
-#define NCTRL   LCTRL SP
+#define NCTRL   LCTRL SPC
 #define SFSP    LSHFT SPC
 
 #define BLU        170
