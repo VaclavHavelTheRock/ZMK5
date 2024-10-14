@@ -243,6 +243,15 @@ ZMK_HOLD_TAP(hmr,
                 = <&macro_tap &kp SPC &kp SPC>
                 ;
         };
+        turboc: turbo_click {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <30>;
+            tap-ms = <30>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK &mkp LCLK >
+                ;
+        };
         colon: colon {
             compatible = "zmk,behavior-macro";
             wait-ms = <0>;
@@ -432,16 +441,16 @@ ZMK_HOLD_TAP(hmr,
                 XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                                                               XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                                                             ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |    -    |    Q    |    W    |    E    |    R    |    T    |                                                             |    Y    |    U    |    I    |    O    |    P    |    =    |
-                XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                                                               XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX
+                &kp TAB   XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                                                               XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX &kp TAB
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                                                             ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |   ESC   |    A    |    S    |    D    |    F    |    G    |                                                             |    H    |    J    |    K    |    L    |    '    |  ENTER  |
                 &kp ESC   &kp DOWN  &kp UP    &nleft    &nrght    XXXXXXXXX                                                               XXXXXXXXX &kp DOWN  &kp UP    &nleft    &nrght    &kp ESC
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┬─────────┬─────────┐ ┌─────────┬─────────┬─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |    `    |    Z    |    X    |    C    |    V    |    B    |  PGUP   |  PGDN   | DELETE  | |   ALT   |  HOME   |   END   |    N    |    M    |    ,    |    .    |    /    |    ;    |
-                XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX &dblsp    _________ _________   _________ _________ &dblsp    XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX &to_num
+                XXXXXXXXX XXXXXXXXX &kp CR    &kp SL    &kp TAB   XXXXXXXXX &dblsp    _________ _________   _________ _________ &dblsp    XXXXXXXXX &kp TAB   &kp SR    &kp CR    XXXXXXXXX &to_num
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤ ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |  MAGIC  |    [    |    ]    |  LEFT   |  RIGHT  |         | Control |  LAYER  |  ENTER  | |   GUI   |BACKSPACE|  SHIFT  |         |   UP    |  DOWN   |  LEFT   |  RIGHT  |  PGDN   |
-                XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX           &mt SFSP  &kp ENTER _________   _________ &kp ENTER &mt SFSP            XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX
+                XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX           &mt NCTRL &kp ENTER _________   _________ &kp ENTER &mt SFSP            &turboc   XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX
             // └─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┘ └─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┘
             >;
         };
