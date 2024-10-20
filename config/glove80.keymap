@@ -317,9 +317,8 @@ ZMK_HOLD_TAP(lsh,
         intleft: left_intermediate {                        // Shift + Left  = WIN  + CTRL + Left       (Move Desktop Left)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            // bindings = <&kp LEFT>, <&kp LC(LG(LEFT))>;
-            bindings = <&kp LEFT>, <&kp LEFT>;
-
+            bindings = <&kp LEFT>, <&kp LC(LG(LEFT))>;
+            // bindings = <&kp LEFT>, <&kp LEFT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         intright: right_intermediate {                      // Shift + Right = WIN  + CTRL + Rght       (Move Desktop Right)
@@ -352,13 +351,15 @@ ZMK_HOLD_TAP(lsh,
         nleft: new_left_arrow {                             // Ctrl  + Left  = SHFT + CTRL + TAB        (Move Left One Tab)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&intleft>, <&kp LC(LS(TAB))>;
+            bindings = <&intleft>, <&intleft>;
+            // bindings = <&intleft>, <&kp LC(LS(TAB))>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
         nrght: new_right_arrow {                            // Ctrl  + Right = CTRL + TAB               (Move Right One Tab)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&intright>, <&kp LC(TAB)>;
+            // bindings = <&intright>, <&kp LC(TAB)>;
+            bindings = <&intright>, <&intright>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
         ncomma: new_comma {                                 // Ctrl  +  ,    =  (
