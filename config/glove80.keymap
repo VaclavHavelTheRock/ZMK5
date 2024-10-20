@@ -333,6 +333,12 @@ ZMK_HOLD_TAP(lsh,
             bindings = <&kp SPC>, <&kp LC(LG(LEFT))>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        clickr: clicker {                                   // Shift + clickr= click left
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&cntrc>, <&sidec>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
 
         //  CONTROL
         //-----------------------------------------------------------------------------------------------------------------------------------
