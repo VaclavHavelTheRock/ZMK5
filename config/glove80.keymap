@@ -102,7 +102,7 @@ ZMK_HOLD_TAP(lct,
 )
 
 ZMK_HOLD_TAP(lsh,
-    flavor = "balanced";
+    flavor = "hold-preferred";
     tapping-term-ms = <200>;
     // quick-tap-ms = <0>;                // repeat on tap-into-hold
     // require-prior-idle-ms = <0>;
