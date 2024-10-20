@@ -104,8 +104,8 @@ ZMK_HOLD_TAP(lct,
 ZMK_HOLD_TAP(lsh,
     flavor = "balanced";
     tapping-term-ms = <200>;
-    quick-tap-ms = <0>;                // repeat on tap-into-hold
-    require-prior-idle-ms = <0>;
+    // quick-tap-ms = <0>;                // repeat on tap-into-hold
+    // require-prior-idle-ms = <0>;
     bindings = <&kp>, <&ntab>;
     // hold-trigger-key-positions = <RH1>;
 )
