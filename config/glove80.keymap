@@ -101,6 +101,15 @@ ZMK_HOLD_TAP(lct,
     // hold-trigger-key-positions = <RH1>;
 )
 
+ZMK_HOLD_TAP(lsh,
+    flavor = "balanced";
+    bindings = <&kp>, <&ntab>;
+    // hold-trigger-key-positions = <RH1>;
+)
+
+
+
+
 
 / {
 
@@ -321,13 +330,7 @@ ZMK_HOLD_TAP(lct,
         nspc: new_space {                                   // Shift + Space = ALT + LEFT               (Previous)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp SPC>, <&kp LA(LEFT)>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        clickr: clicker {                                   // Shift + clickr= click left
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&cntrc>, <&sidec>;
+            bindings = <&kp SPC>, <&kp LC(LG(LEFT))>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -363,6 +366,14 @@ ZMK_HOLD_TAP(lct,
             bindings = <&kp DOT>, <&kp LS(N0)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
+
+        ntab: new_tab {                                   // Shift + Space = ALT + LEFT               (Previous)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SPC>, <&kp LC(LG(RIGHT))>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+
     };
 
     keymap {
@@ -387,7 +398,7 @@ ZMK_HOLD_TAP(lct,
                 &kp GRAVE &kp Z     &kp X     &kp C     &kp V     &kp B     &npgup    &npgdn    &kp DEL     &kp LALT  &kp HOME  &kp END   &kp N     &kp M     &ncomma   &nperiod  &kp FSLH  &kp SEMI
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤ ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |  MAGIC  |    [    |    ]    |  LEFT   |  RIGHT  |         | Control |  LAYER  |  ENTER  | |   GUI   |BACKSPACE|  SHIFT  |         |   UP    |  DOWN   |  LEFT   |  RIGHT  |  PGDN   |
-          &rgb_ug RGB_TOG &kp LBKT  &kp RBKT  &nleft    &nrght              &lct CL 0 &mtly 1 1 &kp ENTER   &kp LGUI  &kp BSPC  &mt NSHFT           &kp DOWN  &kp UP    &nleft    &nrght    &mtly 1 1
+          &rgb_ug RGB_TOG &kp LBKT  &kp RBKT  &nleft    &nrght              &lct CL 0 &mtly 1 1 &kp ENTER   &kp LGUI  &kp BSPC  &lsh SR 0           &kp DOWN  &kp UP    &nleft    &nrght    &mtly 1 1
             // └─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┘ └─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┘
             >;
         };
