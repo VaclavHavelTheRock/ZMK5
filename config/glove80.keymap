@@ -406,7 +406,7 @@ ZMK_HOLD_TAP(lsh,
                 &kp GRAVE &kp Z     &kp X     &kp C     &kp V     &kp B     &npgup    &npgdn    &kp DEL     &kp LALT  &kp HOME  &kp END   &kp N     &kp M     &ncomma   &nperiod  &kp FSLH  &kp SEMI
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤ ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |  MAGIC  |    [    |    ]    |  LEFT   |  RIGHT  |         | Control |  LAYER  |  ENTER  | |   GUI   |BACKSPACE|  SHIFT  |         |   UP    |  DOWN   |  LEFT   |  RIGHT  |  PGDN   |
-          &rgb_ug RGB_TOG &kp LBKT  &kp RBKT  &nleft    &nrght              &lct CL 0 &mtly 1 1 &kp ENTER   &kp LGUI  &kp BSPC  &lsh SR 0           &kp DOWN  &kp UP    &nleft    &nrght    &mtly 1 1
+          &rgb_ug RGB_TOG &kp LBKT  &kp RBKT  &intleft  &intright           &lct CL 0 &mtly 1 1 &kp ENTER   &kp LGUI  &kp BSPC  &lsh SR 0           &kp DOWN  &kp UP    &intleft  &intright &mtly 1 1
             // └─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┘ └─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┘
             >;
         };                                                                                                                      //&lsh SR 0
@@ -424,7 +424,7 @@ ZMK_HOLD_TAP(lsh,
                 &kp F17   _________ _________ _________ _________ _________                                                               &kp SEMI  &search   &kp CAPS  &updir    _________ _________
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                                                             ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |   ESC   |    A    |    S    |    D    |    F    |    G    |                                                             |    H    |    J    |    K    |    L    |    '    |  ENTER  |
-                _________ &kp DOWN  &kp UP    &nleft    &nrght    _________                                                               &colon    &kp DOWN  &kp UP    &nleft    &nrght    &kp C_PP
+                _________ &kp DOWN  &kp UP    &intleft  &intright _________                                                               &colon    &kp DOWN  &kp UP    &intleft  &intright &kp C_PP
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┬─────────┬─────────┐ ┌─────────┬─────────┬─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |    `    |    Z    |    X    |    C    |    V    |    B    |  PGUP   |  PGDN   | DELETE  | |   ALT   |  HOME   |   END   |    N    |    M    |    ,    |    .    |    /    |    ;    |
                 &to_num   _________ _________ _________ _________ &kp F17   _________ _________ _________   _________ _________ _________ &clickr   _________ _________ _________ _________ _________
@@ -472,7 +472,7 @@ ZMK_HOLD_TAP(lsh,
                 &kp TAB   XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                                                               XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX &kp TAB
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                                                             ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |   ESC   |    A    |    S    |    D    |    F    |    G    |                                                             |    H    |    J    |    K    |    L    |    '    |  ENTER  |
-                &kp ESC   &kp DOWN  &kp UP    &nleft    &nrght    XXXXXXXXX                                                               XXXXXXXXX &kp DOWN  &kp UP    &nleft    &nrght    &kp ESC
+                &kp ESC   &kp DOWN  &kp UP    &intleft  &intright XXXXXXXXX                                                               XXXXXXXXX &kp DOWN  &kp UP    &intleft  &intright &kp ESC
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┬─────────┬─────────┐ ┌─────────┬─────────┬─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |    `    |    Z    |    X    |    C    |    V    |    B    |  PGUP   |  PGDN   | DELETE  | |   ALT   |  HOME   |   END   |    N    |    M    |    ,    |    .    |    /    |    ;    |
                 XXXXXXXXX XXXXXXXXX &kp CR    &kp SL    &kp TAB   XXXXXXXXX &dblsp    _________ _________   _________ _________ &dblsp    XXXXXXXXX &kp TAB   &kp SR    &kp CR    XXXXXXXXX &to_num
