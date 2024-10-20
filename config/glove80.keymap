@@ -317,7 +317,9 @@ ZMK_HOLD_TAP(lsh,
         intleft: left_intermediate {                        // Shift + Left  = WIN  + CTRL + Left       (Move Desktop Left)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp LEFT>, <&kp LC(LG(LEFT))>;
+            // bindings = <&kp LEFT>, <&kp LC(LG(LEFT))>;
+            bindings = <&kp LEFT>, <&kp LEFT>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         intright: right_intermediate {                      // Shift + Right = WIN  + CTRL + Rght       (Move Desktop Right)
@@ -375,7 +377,7 @@ ZMK_HOLD_TAP(lsh,
         ntab: new_tab {                                   // Shift + Space = ALT + LEFT               (Previous)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp SPC>, <&kp LC(LG(RIGHT))>;
+            bindings = <&kp TAB>, <&kp LC(LG(RIGHT))>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
