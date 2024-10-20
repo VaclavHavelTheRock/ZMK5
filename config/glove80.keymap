@@ -98,8 +98,8 @@ ZMK_HOLD_TAP(lct,
     quick-tap-ms = <200>;                // repeat on tap-into-hold
     require-prior-idle-ms = <150>;
     bindings = <&kp>, <&nspc>;
-    hold-trigger-key-positions = <RH1       LB1 LB2>;
-                                //backspace c   v
+    hold-trigger-key-positions = <RH1 KEYS_L KEYS_R>;
+                                //backspace c   v   x
 )
 
 ZMK_HOLD_TAP(lsh,
