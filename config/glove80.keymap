@@ -108,7 +108,7 @@ ZMK_HOLD_TAP(lct,
     require-prior-idle-ms = <0>;
     bindings = <&kp>, <&ntab>;
     // hold-trigger-key-positions = <RH1>;
-
+)
 
 / {
 
@@ -403,7 +403,7 @@ ZMK_HOLD_TAP(lct,
                 &kp GRAVE &kp Z     &kp X     &kp C     &kp V     &kp B     &npgup    &npgdn    &kp DEL     &kp LALT  &kp HOME  &kp END   &kp N     &kp M     &ncomma   &nperiod  &kp FSLH  &kp SEMI
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤ ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |  MAGIC  |    [    |    ]    |  LEFT   |  RIGHT  |         | Control |  LAYER  |  ENTER  | |   GUI   |BACKSPACE|  SHIFT  |         |   UP    |  DOWN   |  LEFT   |  RIGHT  |  PGDN   |
-          &rgb_ug RGB_TOG &kp LBKT  &kp RBKT  &nleft    &nrght              &lct CL 0 &mtly 1 1 &kp ENTER   &kp LGUI  &kp BSPC  &kp TAB             &kp DOWN  &kp UP    &nleft    &nrght    &mtly 1 1
+          &rgb_ug RGB_TOG &kp LBKT  &kp RBKT  &nleft    &nrght              &lct CL 0 &mtly 1 1 &kp ENTER   &kp LGUI  &kp BSPC  &lsh SR 0           &kp DOWN  &kp UP    &nleft    &nrght    &mtly 1 1
             // └─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┘ └─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┘
             >;
         };                                                                                                                      //&lsh SR 0
