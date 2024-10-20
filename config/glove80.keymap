@@ -101,7 +101,7 @@ ZMK_HOLD_TAP(lct,
     // hold-trigger-key-positions = <RH1>;
 )
 
-ZMK_HOLD_TAP(lct,
+ZMK_HOLD_TAP(lsh,
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <0>;                // repeat on tap-into-hold
