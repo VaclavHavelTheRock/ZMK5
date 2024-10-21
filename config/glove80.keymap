@@ -311,18 +311,15 @@ ZMK_HOLD_TAP(lsh,
             bindings = <&kp PG_DN>, <&kp LS(LG(RIGHT))>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        intleft: left_intermediate {                        // Shift + Left  = WIN  + CTRL + Left       (Move Desktop Left)
+        nleft: new_left_arrow {                        // Shift + Left  = WIN  + CTRL + Left       (Move Desktop Left)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            // bindings = <&kp LEFT>, <&kp LC(LG(LEFT))>;
             bindings = <&kp LEFT>, <&kp LC(LS(TAB))>;
-            // bindings = <&kp LEFT>, <&kp LEFT>;
             mods = <(MOD_LSFT)>;
         };
-        intright: right_intermediate {                      // Shift + Right = WIN  + CTRL + Rght       (Move Desktop Right)
+        nright: new_right_arrow {                      // Shift + Right = WIN  + CTRL + Rght       (Move Desktop Right)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            // bindings = <&kp RIGHT>, <&kp LC(LG(RIGHT))>;
             bindings = <&kp RIGHT>, <&kp LC(TAB)>;
             mods = <(MOD_LSFT)>;
         };
@@ -345,20 +342,6 @@ ZMK_HOLD_TAP(lsh,
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp ESC>, <&kp LA(F4)>;
-            mods = <(MOD_LCTL|MOD_RCTL)>;
-        };
-        nleft: new_left_arrow {                             // Ctrl  + Left  = SHFT + CTRL + TAB        (Move Left One Tab)
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&intleft>, <&intleft>;
-            // bindings = <&intleft>, <&kp LC(LS(TAB))>;
-            mods = <(MOD_LCTL|MOD_RCTL)>;
-        };
-        nrght: new_right_arrow {                            // Ctrl  + Right = CTRL + TAB               (Move Right One Tab)
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            // bindings = <&intright>, <&kp LC(TAB)>;
-            bindings = <&intright>, <&intright>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
         ncomma: new_comma {                                 // Ctrl  +  ,    =  (
@@ -404,7 +387,7 @@ ZMK_HOLD_TAP(lsh,
                 &kp GRAVE &kp Z     &kp X     &kp C     &kp V     &kp B     &npgup    &npgdn    &kp DEL     &kp LALT  &kp HOME  &kp END   &kp N     &kp M     &ncomma   &nperiod  &kp FSLH  &kp SEMI
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤ ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |  MAGIC  |    [    |    ]    |  LEFT   |  RIGHT  |         | Control |  LAYER  |  ENTER  | |   GUI   |BACKSPACE|  SHIFT  |         |   UP    |  DOWN   |  LEFT   |  RIGHT  |  PGDN   |
-          &rgb_ug RGB_TOG &kp LBKT  &kp RBKT  &intleft  &intright           &lct CL 0 &mtly 1 1 &kp ENTER   &kp LGUI  &kp BSPC  &lsh SL 0           &kp DOWN  &kp UP    &intleft  &intright &mtly 1 1
+          &rgb_ug RGB_TOG &kp LBKT  &kp RBKT  &nleft    &nright             &lct CL 0 &mtly 1 1 &kp ENTER   &kp LGUI  &kp BSPC  &lsh SL 0           &kp DOWN  &kp UP    &nleft    &nright   &mtly 1 1
             // └─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┘ └─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┘
             >;
         };                                                                                                                      //&lsh SR 0
@@ -422,7 +405,7 @@ ZMK_HOLD_TAP(lsh,
                 &kp F17   _________ _________ _________ _________ _________                                                               &kp SEMI  &search   &kp CAPS  &updir    _________ _________
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                                                             ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |   ESC   |    A    |    S    |    D    |    F    |    G    |                                                             |    H    |    J    |    K    |    L    |    '    |  ENTER  |
-                _________ &kp DOWN  &kp UP    &intleft  &intright _________                                                               &colon    &kp DOWN  &kp UP    &intleft  &intright &kp C_PP
+                _________ &kp DOWN  &kp UP    &nleft    &nright   _________                                                               &colon    &kp DOWN  &kp UP    &nleft    &nright   &kp C_PP
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┬─────────┬─────────┐ ┌─────────┬─────────┬─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |    `    |    Z    |    X    |    C    |    V    |    B    |  PGUP   |  PGDN   | DELETE  | |   ALT   |  HOME   |   END   |    N    |    M    |    ,    |    .    |    /    |    ;    |
                 &to_num   _________ _________ _________ _________ &kp F17   _________ _________ _________   _________ _________ _________ &clickr   _________ _________ _________ _________ _________
@@ -470,7 +453,7 @@ ZMK_HOLD_TAP(lsh,
                 &kp TAB   &kp ESC   &kp TAB   &kp ENTER &dblsp    XXXXXXXXX                                                               XXXXXXXXX &dblsp    &kp ENTER &kp TAB   &kp ESC   &kp TAB
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                                                             ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |   ESC   |    A    |    S    |    D    |    F    |    G    |                                                             |    H    |    J    |    K    |    L    |    '    |  ENTER  |
-                &kp ESC   &kp DOWN  &kp UP    &intleft  &intright XXXXXXXXX                                                               XXXXXXXXX &kp DOWN  &kp UP    &intleft  &intright &kp ESC
+                &kp ESC   &kp DOWN  &kp UP    &nleft    &nright   XXXXXXXXX                                                               XXXXXXXXX &kp DOWN  &kp UP    &nleft    &nright   &kp ESC
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┬─────────┬─────────┐ ┌─────────┬─────────┬─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |    `    |    Z    |    X    |    C    |    V    |    B    |  PGUP   |  PGDN   | DELETE  | |   ALT   |  HOME   |   END   |    N    |    M    |    ,    |    .    |    /    |    ;    |
                 XXXXXXXXX XXXXXXXXX &kp CR    &kp SL    &kp TAB   XXXXXXXXX &dblsp    _________ _________   _________ _________ &dblsp    XXXXXXXXX &kp TAB   &kp SR    &kp CR    XXXXXXXXX &to_num
