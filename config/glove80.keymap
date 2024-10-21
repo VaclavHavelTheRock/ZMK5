@@ -290,7 +290,6 @@ ZMK_HOLD_TAP(lsh,
             #binding-cells = <0>;
             text = "Hello, world!";
         };
-
         mtly: mod_tap_layer {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
