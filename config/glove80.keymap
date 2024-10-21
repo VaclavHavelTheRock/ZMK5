@@ -98,8 +98,8 @@ ZMK_HOLD_TAP(lct,
     quick-tap-ms = <200>;                // repeat on tap-into-hold
     require-prior-idle-ms = <150>;
     bindings = <&kp>, <&nspc>;
-    hold-trigger-key-positions = <RH1           KEYS_L KEYS_R>;
-                                //backspace
+    hold-trigger-key-positions = <RH1             RH2            KEYS_L KEYS_R>;
+                                //backspace       Shift/space
 )
 
 ZMK_HOLD_TAP(lsh,
@@ -254,8 +254,8 @@ ZMK_HOLD_TAP(lsh,
         };
         dblsp: double_space {
             compatible = "zmk,behavior-macro";
-            wait-ms = <30>;
-            tap-ms = <30>;
+            wait-ms = <50>;
+            tap-ms = <50>;
             #binding-cells = <0>;
             bindings
                 = <&macro_tap &kp SPC &kp SPC>
@@ -475,7 +475,7 @@ ZMK_HOLD_TAP(lsh,
                 XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                                                               XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                                                             ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |    -    |    Q    |    W    |    E    |    R    |    T    |                                                             |    Y    |    U    |    I    |    O    |    P    |    =    |
-                &kp TAB   XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX                                                               XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX &kp TAB
+                &kp TAB   XXXXXXXXX &kp TAB   &kp ENTER &dblsp    XXXXXXXXX                                                               XXXXXXXXX &dblsp    &kp ENTER &kp TAB   XXXXXXXXX &kp TAB
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                                                             ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |   ESC   |    A    |    S    |    D    |    F    |    G    |                                                             |    H    |    J    |    K    |    L    |    '    |  ENTER  |
                 &kp ESC   &kp DOWN  &kp UP    &intleft  &intright XXXXXXXXX                                                               XXXXXXXXX &kp DOWN  &kp UP    &intleft  &intright &kp ESC
