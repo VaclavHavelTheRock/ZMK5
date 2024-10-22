@@ -390,7 +390,7 @@ ZMK_HOLD_TAP(lsh,
           &rgb_ug RGB_TOG &kp LBKT  &kp RBKT  &nleft    &nright             &lct CL 0 &mtly 1 1 &kp ENTER   &kp LGUI  &kp BSPC  &lsh SL 0           &kp DOWN  &kp UP    &nleft    &nright   &mtly 1 1
             // └─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┘ └─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┘
             >;
-        };                                                                                                                      //&lsh SR 0
+        };
 
         _NAV {
             bindings = <
@@ -420,7 +420,7 @@ ZMK_HOLD_TAP(lsh,
             bindings = <
             // ┌─────────┬─────────┬─────────┬─────────┬─────────┐                                                                                 ┌─────────┬─────────┬─────────┬─────────┬─────────┐
             // |    F1   |    F2   |    F3   |    F4   |    F5   |                                                                                 |    F6   |    F7   |    F8   |    F9   |    F10  |
-                &kp BRIDN &kp BRIUP &kp PREV  &kp NEXT  &kp C_PP                                                                                    &kp MUTE  &kp VOLDN &kp VOLUP XXXXXXXXX &kp PSBRK
+               &bt BT_CLR &kp BRIUP &kp PREV  &kp NEXT  &kp C_PP                                                                                    &kp MUTE  &kp VOLDN &kp VOLUP XXXXXXXXX &kp PSBRK
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐                                                             ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |   GUI   |    1    |    2    |    3    |    4    |    5    |                                                             |    6    |    7    |    8    |    9    |    0    |    \    |
                 &BL       XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX &kp HOME                                                                &kp LPAR  &kp NUM   &kp NPEQ  &kp NPDV  &kp NPMP  &BL
@@ -432,10 +432,10 @@ ZMK_HOLD_TAP(lsh,
           &rgb_ug RGB_EFF XXXXXXXXX &kp LEFT  &kp DOWN  &kp RIGHT &kp PG_UP                                                               &kp PRCNT &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp NPPL  XXXXXXXXX
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┬─────────┬─────────┐ ┌─────────┬─────────┬─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |    `    |    Z    |    X    |    C    |    V    |    B    |  PGUP   |  PGDN   | DELETE  | |   ALT   |  HOME   |   END   |    N    |    M    |    ,    |    .    |    /    |    ;    |
-                &to_nav   &kp CMENU XXXXXXXXX &kp F11   &kp F12   &kp PG_DN _________ _________ _________   _________ _________ _________ &kp COMMA &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp NPEN  &to_gam
+                &to_nav   &kp CMENU XXXXXXXXX &kp F11   &kp F12   &kp PG_DN &bt_2     &bt_3     _________   _________ _________ _________ &kp COMMA &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp NPEN  &to_gam
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤ ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |  MAGIC  |    [    |    ]    |  LEFT   |  RIGHT  |         | Control |  LAYER  |  ENTER  | |   GUI   |BACKSPACE|  SHIFT  |         |   UP    |  DOWN   |  LEFT   |  RIGHT  |  PGDN   |
-                _________ &kp CAPS  &kp INS   &kp F11   &kp F12             _________ _________ _________   _________ _________ _________           &kp KP_N0 &kp KP_N0 &kp NPDT  &kp NPEN  _________
+                _________ &kp CAPS  &kp INS   &kp F11   &kp F12             &bt_0     &bt_1    &out OUT_USB _________ _________ _________           &kp KP_N0 &kp KP_N0 &kp NPDT  &kp NPEN  _________
             // └─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┘ └─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┘
             >;
         };
