@@ -463,10 +463,10 @@ ZMK_HOLD_TAP(lsh,
           &rgb_ug RGB_EFF XXXXXXXXX &kp LEFT  &kp DOWN  &kp RIGHT &kp PG_UP                                                               &kp PRCNT &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp NPPL  XXXXXXXXX
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┬─────────┬─────────┐ ┌─────────┬─────────┬─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |    `    |    Z    |    X    |    C    |    V    |    B    |  PGUP   |  PGDN   | DELETE  | |   ALT   |  HOME   |   END   |    N    |    M    |    ,    |    .    |    /    |    ;    |
-                &to_nav   &kp CMENU XXXXXXXXX &kp F11   &kp F12   &kp PG_DN &bt_2     &bt_3     _________   _________ _________ _________ &kp COMMA &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp NPEN  &to_gam
+                &to_nav   &kp CMENU XXXXXXXXX &kp F11   &kp F12   &kp PG_DN &bt_1     &bt_3     &bt_3       _________ _________ _________ &kp COMMA &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp NPEN  &to_gam
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤ ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |  MAGIC  |    [    |    ]    |  LEFT   |  RIGHT  |         | Control |  LAYER  |  ENTER  | |   GUI   |BACKSPACE|  SHIFT  |         |   UP    |  DOWN   |  LEFT   |  RIGHT  |  PGDN   |
-                _________ &kp CAPS  &kp INS   &kp F11   &kp F12             &bt_0     &bt_1    &out OUT_USB _________ _________ _________           &kp KP_N0 &kp KP_N0 &kp NPDT  &kp NPEN  _________
+                _________ &kp CAPS  &kp INS   &kp F11   &kp F12             &bt_0    _________ &out OUT_USB _________ _________ _________           &kp KP_N0 &kp KP_N0 &kp NPDT  &kp NPEN  _________
             // └─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┘ └─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┘
             >;
         };
