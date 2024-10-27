@@ -71,15 +71,6 @@
 #define KEYS_R  RC5 RC4 RC3 RC2 RC1 RN5 RN4 RN3 RN2 RN1 RN0 RT5 RT4 RT3 RT2 RT1 RT0 RM5 RM4 RM3 RM2 RM1 RM0 RB5 RB4 RB3 RB2 RB1 RB0 RF5 RF4 RF3 RF2 RF1 // rght-hand keys
 #define THUMBS  LH5 LH4 LH3 RH3 RH4 RH5 LH2 LH1 LH0 RH0 RH1 RH2
 
-
-    NAME: NAME { \
-        compatible = "zmk,behavior-macro"; \
-        #binding-cells = <0>; \
-        wait-ms = <10>; \
-        tap-ms = <10>; \
-        bindings = <BINDINGS>; \
-    };
-
 /* left-hand HRMs */
 ZMK_HOLD_TAP(hml,
     flavor = "balanced";
