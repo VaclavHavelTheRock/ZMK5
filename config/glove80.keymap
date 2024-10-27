@@ -81,6 +81,7 @@ ZMK_HOLD_TAP(hml,
     hold-trigger-key-positions = <KEYS_R THUMBS>;
     hold-trigger-on-release;             // delay positional check until key-release
 )
+
 /* right-hand HRMs */
 ZMK_HOLD_TAP(hmr,
     flavor = "balanced";
@@ -92,6 +93,7 @@ ZMK_HOLD_TAP(hmr,
     hold-trigger-on-release;             // delay positional check until key-release
 )
 
+// left control/space
 ZMK_HOLD_TAP(lct,
     flavor = "hold-preferred";
     tapping-term-ms = <200>;
@@ -102,15 +104,25 @@ ZMK_HOLD_TAP(lct,
                                 //backspace       Shift/space
 )
 
+// right shift/tab
 ZMK_HOLD_TAP(lsh,
     flavor = "hold-preferred";
     tapping-term-ms = <200>;
     bindings = <&kp>, <&ntab>;
 )
 
-/ {
+ZMK_HOLD_TAP(ls17,
+    flavor = "hold-preferred";
+    tapping-term-ms = <200>;
+    bindings = <&kp>, <&kp>;
+)
 
+
+
+/ {
     macros {
+        // Bluetoth Profiles
+        //-----------------------------------------------------------------------------------------------------------------------------------
         bt_0: bt_profile_macro_0 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -118,7 +130,6 @@ ZMK_HOLD_TAP(lsh,
                 = <&out OUT_BLE>,
                   <&bt BT_SEL 0>;
         };
-
         bt_1: bt_profile_macro_1 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -126,7 +137,6 @@ ZMK_HOLD_TAP(lsh,
                 = <&out OUT_BLE>,
                   <&bt BT_SEL 1>;
         };
-
         bt_2: bt_profile_macro_2 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -134,7 +144,6 @@ ZMK_HOLD_TAP(lsh,
                 = <&out OUT_BLE>,
                   <&bt BT_SEL 2>;
         };
-
         bt_3: bt_profile_macro_3 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -142,91 +151,9 @@ ZMK_HOLD_TAP(lsh,
                 = <&out OUT_BLE>,
                   <&bt BT_SEL 3>;
         };
-        search: search_highlighted_selection {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings
-                = <&macro_press &kp LCTRL>
-                , <&macro_tap &kp C &kp T &kp V>
-                , <&macro_release &kp LCTRL>
-                , <&macro_tap &kp ENTER>
-                ;
-        };
-        lucky: lucky_search_highlighted_selection {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings
-                // CTRL(C T)
-                = <&macro_press &kp K>
-                // = <&hello_world>
-                // , <&macro_tap &kp C &kp T>
-                // , <&macro_release &kp LCTRL>
 
-                // // HTTPS
-                // , <&macro_tap &kp H &kp T &kp T &kp P &kp S>
-
-                // // :
-                // , <&macro_press &kp LSHFT>
-                // , <&macro_tap &kp SEMI &kp SEMI>
-                // , <&macro_release &kp LSHFT>
-
-                // // //www.google.com/search
-                // , <&macro_tap &kp FSLH &kp FSLH &kp W &kp W &kp W &kp DOT &kp G &kp O &kp O &kp G &kp L &kp E &kp DOT &kp C &kp O &kp M &kp FSLH &kp S &kp E &kp A &kp R &kp C>
-
-                // , <&macro_tap &kp H>
-
-
-                // // ?
-                // , <&macro_press &kp LSHFT>
-                // , <&macro_tap &kp SEMI>
-                // , <&macro_release &kp LSHFT>
-
-                // // copy paste
-                // , <&macro_press &kp LCTRL>
-                // , <&macro_tap &kp V>
-                // , <&macro_release &kp LCTRL>
-
-                // // &
-                // , <&macro_press &kp LSHFT>
-                // , <&macro_tap &kp N7>
-                // , <&macro_release &kp LSHFT>
-
-                // // btnI=I
-                // , <&macro_tap &kp B &kp T &kp N &kp I &kp EQUAL &kp I>
-                // , <&macro_tap &kp ENTER>
-                // // "https://www.google.com/search?q=" SS_LCTL("v") "&btnI=I"
-                ;
-        };
-        cntrc: click_center {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_wait_time 50>
-                , <&macro_tap &kp F20 &mkp LCLK>
-                ;
-        };
-        sidec: click_side {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_wait_time 50>
-                , <&macro_tap &kp F19 &mkp LCLK>
-                ;
-        };
-        updir: up_directory {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <1>;
-            tap-ms = <1>;
-            bindings
-                = <&macro_wait_time 1>
-                , <&macro_tap &kp DOT &kp DOT &kp FSLH>
-                ;
-        };
+        // Layer Toggles with Colors
+        //-----------------------------------------------------------------------------------------------------------------------------------
         to_hom: to_hom {
             compatible = "zmk,behavior-macro";
             wait-ms = <0>;
@@ -280,6 +207,47 @@ ZMK_HOLD_TAP(lsh,
                 , <&macro_tap &rgb_ug RGB_COLOR_HSB(BLU, SAT, BRT)>
                 ;
         };
+
+        // Macros
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        search: search_highlighted_selection {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp C &kp T &kp V>
+                , <&macro_release &kp LCTRL>
+                , <&macro_tap &kp ENTER>
+                ;
+        };
+        cntrc: click_center {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_wait_time 50>
+                , <&macro_tap &kp F20 &mkp LCLK>
+                ;
+        };
+        sidec: click_side {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_wait_time 50>
+                , <&macro_tap &kp F19 &mkp LCLK>
+                ;
+        };
+        updir: up_directory {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <1>;
+            tap-ms = <1>;
+            bindings
+                = <&macro_wait_time 1>
+                , <&macro_tap &kp DOT &kp DOT &kp FSLH>
+                ;
+        };
         dblsp: double_space {
             compatible = "zmk,behavior-macro";
             wait-ms = <50>;
@@ -309,6 +277,7 @@ ZMK_HOLD_TAP(lsh,
                 , <&macro_release &kp LSHFT>
                 ;
         };
+        //-----------------------------------------------------------------------------------------------------------------------------------
     };
 
     // chosen {
@@ -342,13 +311,13 @@ ZMK_HOLD_TAP(lsh,
             bindings = <&kp PG_DN>, <&kp LS(LG(RIGHT))>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        nleft: new_left_arrow {                             // Shift + Left  = WIN  + CTRL + Left       (Move Desktop Left)
+        nleft: new_left_arrow {                             // LSFT  + Left  = CTRL + SHFT + TAB        (Move Tab Right)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp LEFT>, <&kp LC(LS(TAB))>;
             mods = <(MOD_LSFT)>;
         };
-        nright: new_right_arrow {                           // Shift + Right = WIN  + CTRL + Rght       (Move Desktop Right)
+        nright: new_right_arrow {                           // LSFT  + Right = CTRL + TAB               (Move Tab Right)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp RIGHT>, <&kp LC(TAB)>;
@@ -387,12 +356,13 @@ ZMK_HOLD_TAP(lsh,
             bindings = <&kp DOT>, <&kp LS(N0)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
-        ntab: new_tab {                                     // Shift + Space = ALT + LEFT               (Previous)
+        ntab: new_tab {                                     // Ctl   + Space = CTL + WIN + Right        (Move Desktop Right)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp TAB>, <&kp LC(LG(RIGHT))>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
+        //-----------------------------------------------------------------------------------------------------------------------------------
 
     };
 
@@ -442,7 +412,7 @@ ZMK_HOLD_TAP(lsh,
                 &to_num   _________ _________ _________ _________ &kp F17   _________ _________ _________   _________ _________ _________ &clickr   _________ _________ _________ _________ _________
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤ ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |  MAGIC  |    [    |    ]    |  LEFT   |  RIGHT  |         | Control |  LAYER  |  ENTER  | |   GUI   |BACKSPACE|  SHIFT  |         |   UP    |  DOWN   |  LEFT   |  RIGHT  |  PGDN   |
-                _________ _________ _________ &kp PREV  &kp NEXT            _________ &to_hom   _________   &kp C_PP  _________ _________           &kp VOLDN &kp VOLUP &kp PREV  &kp NEXT  &to_hom
+                _________ _________ _________ &kp PREV  &kp NEXT            _________ &to_hom   _________   &kp C_PP  _________ &ls17 SL F17        &kp VOLDN &kp VOLUP &kp PREV  &kp NEXT  &to_hom
             // └─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┘ └─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┘
             >;
         };
@@ -466,7 +436,7 @@ ZMK_HOLD_TAP(lsh,
                 &to_nav   &kp CMENU XXXXXXXXX &kp F11   &kp F12   &kp PG_DN &bt_1     &bt_3     &bt_3       _________ _________ _________ &kp COMMA &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp NPEN  &to_gam
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤ ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |  MAGIC  |    [    |    ]    |  LEFT   |  RIGHT  |         | Control |  LAYER  |  ENTER  | |   GUI   |BACKSPACE|  SHIFT  |         |   UP    |  DOWN   |  LEFT   |  RIGHT  |  PGDN   |
-                _________ &kp CAPS  &kp INS   &kp F11   &kp F12             &bt_0     _________ &out OUT_USB _________ _________ _________           &kp KP_N0 &kp KP_N0 &kp NPDT  &kp NPEN  _________
+                _________ &kp CAPS  &kp INS   &kp F11   &kp F12             &bt_0    _________ &out OUT_USB _________ _________ _________           &kp KP_N0 &kp KP_N0 &kp NPDT  &kp NPEN  _________
             // └─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┘ └─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┘
             >;
         };
