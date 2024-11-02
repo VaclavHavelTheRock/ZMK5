@@ -117,9 +117,6 @@ ZMK_HOLD_TAP(ls17,
     bindings = <&kp>, <&kp>;
 )
 
-
-
-
 / {
     macros {
         // Bluetoth Profiles
@@ -325,6 +322,18 @@ ZMK_HOLD_TAP(ls17,
             bindings = <&kp PG_DN>, <&kp LS(LG(RIGHT))>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        nspc: new_space {                                   // Shift + Space = ALT + LEFT               (Previous)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SPC>, <&kp LC(LG(LEFT))>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        clickr: clicker {                                   // Shift + clickr= click left               (Click Left of Screen)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&cntrc>, <&sidec>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
         nleft: new_left_arrow {                             // LSFT  + Left  = CTRL + SHFT + TAB        (Move Tab Right)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -337,18 +346,6 @@ ZMK_HOLD_TAP(ls17,
             bindings = <&kp RIGHT>, <&kp LC(TAB)>;
             mods = <(MOD_LSFT)>;
         };
-        nspc: new_space {                                   // Shift + Space = ALT + LEFT               (Previous)
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp SPC>, <&kp LC(LG(LEFT))>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        clickr: clicker {                                   // Shift + clickr= click left
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&cntrc>, <&sidec>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
 
         //  CONTROL
         //-----------------------------------------------------------------------------------------------------------------------------------
@@ -356,6 +353,12 @@ ZMK_HOLD_TAP(ls17,
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp ESC>, <&kp LA(F4)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
+        ntab: new_tab {                                     // Ctl   + Space = CTL + WIN + Right        (Move Desktop Right)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp TAB>, <&kp LC(LG(RIGHT))>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
         ncomma: new_comma {                                 // Ctrl  +  ,    =  (
@@ -370,14 +373,7 @@ ZMK_HOLD_TAP(ls17,
             bindings = <&kp DOT>, <&kp LS(N0)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
-        ntab: new_tab {                                     // Ctl   + Space = CTL + WIN + Right        (Move Desktop Right)
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp TAB>, <&kp LC(LG(RIGHT))>;
-            mods = <(MOD_LCTL|MOD_RCTL)>;
-        };
         //-----------------------------------------------------------------------------------------------------------------------------------
-
     };
 
     keymap {
@@ -402,7 +398,7 @@ ZMK_HOLD_TAP(ls17,
                 &kp GRAVE &kp Z     &kp X     &kp C     &kp V     &kp B     &npgup    &npgdn    &kp DEL     &kp F4    &kp HOME  &kp END   &kp N     &kp M     &ncomma   &nperiod  &kp FSLH  &kp SEMI
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤ ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |  MAGIC  |    [    |    ]    |  LEFT   |  RIGHT  |         | Control |  LAYER  |  ENTER  | |   GUI   |BACKSPACE|  SHIFT  |         |   UP    |  DOWN   |  LEFT   |  RIGHT  |  PGDN   |
-          &rgb_ug RGB_TOG &kp LBKT  &kp RBKT  &nleft    &nright             &lct CL 0 &mtly 1 1 &kp ENTER   &kp LGUI  &kp BSPC  &lsh SL 0           &kp DOWN  &kp UP    &nleft    &nright   &mtly 1 1
+                &mc_selw  &kp LBKT  &kp RBKT  &nleft    &nright             &lct CL 0 &mtly 1 1 &kp ENTER   &kp LGUI  &kp BSPC  &lsh SL 0           &kp DOWN  &kp UP    &nleft    &nright   &mtly 1 1
             // └─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┘ └─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┘
             >;
         };
@@ -417,7 +413,7 @@ ZMK_HOLD_TAP(ls17,
                 _________ _________ _________ _________ _________ _________                                                               _________ _________ _________ _________ _________ _________
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                                                             ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |    -    |    Q    |    W    |    E    |    R    |    T    |                                                             |    Y    |    U    |    I    |    O    |    P    |    =    |
-                &kp SEMI  _________ _________ _________ _________ &mc_selw                                                                &kp SEMI  &search   &kp CAPS  &updir    _________ _________
+                &mc_selw  _________ _________ _________ _________ _________                                                               _________ &search   &kp CAPS  &updir    _________ _________
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                                                             ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |   ESC   |    A    |    S    |    D    |    F    |    G    |                                                             |    H    |    J    |    K    |    L    |    '    |  ENTER  |
                 _________ &kp DOWN  &kp UP    &nleft    &nright   _________                                                               &colon    &kp DOWN  &kp UP    &nleft    &nright   &kp SEMI
@@ -426,7 +422,7 @@ ZMK_HOLD_TAP(ls17,
                 &to_num   _________ _________ _________ _________ &kp F17   _________ _________ _________   _________ _________ _________ &clickr   _________ _________ _________ _________ _________
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤ ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |  MAGIC  |    [    |    ]    |  LEFT   |  RIGHT  |         | Control |  LAYER  |  ENTER  | |   GUI   |BACKSPACE|  SHIFT  |         |   UP    |  DOWN   |  LEFT   |  RIGHT  |  PGDN   |
-                _________ _________ _________ &kp PREV  &kp NEXT            _________ &to_hom   _________   &kp C_PP  _________ &ls17 SL F17        &kp VOLDN &kp VOLUP &kp PREV  &kp NEXT  &to_hom
+          &rgb_ug RGB_TOG _________ _________ &kp PREV  &kp NEXT            _________ &to_hom   _________   &kp C_PP  _________ &ls17 SL F17        &kp VOLDN &kp VOLUP &kp PREV  &kp NEXT  &to_hom
             // └─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┘ └─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┘
             >;
         };
