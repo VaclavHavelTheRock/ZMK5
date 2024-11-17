@@ -345,10 +345,16 @@ ZMK_HOLD_TAP(ls17,
             bindings = <&kp RIGHT>, <&kp LC(TAB)>;
             mods = <(MOD_LSFT)>;
         };
+        nbspc: new_backspace {                              // Shift + BSPC  = DELETE                   (Click Left of Screen)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp BSPC>, <&kp DEL>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
 
         //  CONTROL
         //-----------------------------------------------------------------------------------------------------------------------------------
-        colc: colon_close {                              // Ctrl  + `      = ALT + F4                 (Close Window)
+        colc: colon_close {                                 // Ctrl  + `      = ALT + F4                 (Close Window)
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp SEMI>, <&kp LA(F4)>;
@@ -397,7 +403,7 @@ ZMK_HOLD_TAP(ls17,
                 &kp GRAVE &kp Z     &kp X     &kp C     &kp V     &kp B     &npgup    &npgdn    &kp DEL     &kp F4    &kp HOME  &kp END   &kp N     &kp M     &ncomma   &nperiod  &kp FSLH  &colc
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤ ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |  MAGIC  |    [    |    ]    |  LEFT   |  RIGHT  |         | Control |  LAYER  |  ENTER  | |   GUI   |BACKSPACE|  SHIFT  |         |   UP    |  DOWN   |  LEFT   |  RIGHT  |  PGDN   |
-                &mc_selw  &kp LBKT  &kp RBKT  &nleft    &nright             &lct CL 0 &mtly 1 1 &kp ENTER   &kp LGUI  &kp BSPC  &lsh SL 0           &kp DOWN  &kp UP    &nleft    &nright   &mtly 1 1
+                &mc_selw  &kp LBKT  &kp RBKT  &nleft    &nright             &lct CL 0 &mtly 1 1 &kp ENTER   &kp LGUI  &nbspc    &lsh SL 0           &kp DOWN  &kp UP    &nleft    &nright   &mtly 1 1
             // └─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┘ └─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┘
             >;
         };
