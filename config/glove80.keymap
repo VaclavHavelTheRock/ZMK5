@@ -114,7 +114,7 @@ ZMK_HOLD_TAP(lct,
     quick-tap-ms = <200>;                // repeat on tap-into-hold
     require-prior-idle-ms = <200>;
     bindings = <&htonmo>, <&nspc>;
-    hold-trigger-key-positions = <R3_L R3_R RM0 RM5>;
+    hold-trigger-key-positions = <R3_L R3_R RM0 RM5 RH2>;
                                 //backspace       Shift/space
 )
 
@@ -257,7 +257,7 @@ ZMK_HOLD_TAP(lsr,
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                =  <&kp LC(LG(RIGHT))>
+                = <&kp LC(LG(RIGHT))>
                 ;
         };
         sidec: click_side {
@@ -456,10 +456,10 @@ ZMK_HOLD_TAP(lsr,
                 _________ &kp DOWN  &kp UP    &nleft    &nright   _________                                                               &colon    &kp DOWN  &kp UP    &nleft    &nright   &kp SEMI
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┬─────────┬─────────┐ ┌─────────┬─────────┬─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |    `    |    Z    |    X    |    C    |    V    |    B    |  PGUP   |  PGDN   | DELETE  | |   ALT   |  HOME   |   END   |    N    |    M    |    ,    |    .    |    /    |    ;    |
-                &to_num   _________ _________ _________ _________ &kp F17   _________ _________ _________   _________ _________ _________ &clickr   &search   &kp CAPS  &updir    _________ _________
+                &to_num   _________ _________ _________ _________ &kp F17   _________ _________ _________   _________ _________ &kp F17   &clickr   &search   &kp CAPS  &updir    _________ _________
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤ ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |  MAGIC  |    [    |    ]    |  LEFT   |  RIGHT  |         | Control |  LAYER  |  ENTER  | |   GUI   |BACKSPACE|  SHIFT  |         |   UP    |  DOWN   |  LEFT   |  RIGHT  |  PGDN   |
-          &rgb_ug RGB_TOG _________ _________ &kp PREV  &kp NEXT            _________ &to_hom   _________   &kp C_PP  &kp F17   &lsr SL 0           &kp VOLDN &kp VOLUP &kp PREV  &kp NEXT  &to_hom
+          &rgb_ug RGB_TOG _________ _________ &kp PREV  &kp NEXT            _________ &to_hom   _________   &kp C_PP  _________ &lsr SL 0           &kp VOLDN &kp VOLUP &kp PREV  &kp NEXT  &to_hom
             // └─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┘ └─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┘
             >;
         };
