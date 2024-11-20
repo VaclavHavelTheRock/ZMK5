@@ -67,8 +67,11 @@
 #define SAT        100  // saturation
 #define BRT         25  // brightness
 
-#define KEYS_L  LC5 LC4 LC3 LC2 LC1 LN5 LN4 LN3 LN2 LN1 LN0 LT5 LT4 LT3 LT2 LT1 LT0 LM5 LM4 LM3 LM2 LM1 LM0 LB5 LB4 LB3 LB2 LB1 LB0 LF5 LF4 LF3 LF2 LF1 // left-hand keys
-#define KEYS_R  RC5 RC4 RC3 RC2 RC1 RN5 RN4 RN3 RN2 RN1 RN0 RT5 RT4 RT3 RT2 RT1 RT0 RM5 RM4 RM3 RM2 RM1 RM0 RB5 RB4 RB3 RB2 RB1 RB0 RF5 RF4 RF3 RF2 RF1 // rght-hand keys
+
+#define R3_L    LT5 LT4 LT3 LT2 LT1 LT0
+#define R3_R    RT0 RT1 RT2 RT3 RT3 RT5
+#define KEYS_L  LC5 LC4 LC3 LC2 LC1 LN5 LN4 LN3 LN2 LN1 LN0 LM5 LM4 LM3 LM2 LM1 LM0 LB5 LB4 LB3 LB2 LB1 LB0 LF5 LF4 LF3 LF2 LF1 // left-hand keys
+#define KEYS_R  RC5 RC4 RC3 RC2 RC1 RN5 RN4 RN3 RN2 RN1 RN0 RM5 RM4 RM3 RM2 RM1 RM0 RB5 RB4 RB3 RB2 RB1 RB0 RF5 RF4 RF3 RF2 RF1 // rght-hand keys
 #define THUMBS  LH5 LH4 LH3 RH3 RH4 RH5 LH2 LH1 LH0 RH0 RH1 RH2
 
 /* left-hand HRMs */
@@ -78,7 +81,7 @@ ZMK_HOLD_TAP(hml,
     quick-tap-ms = <200>;                // repeat on tap-into-hold
     require-prior-idle-ms = <150>;
     bindings = <&kp>, <&kp>;
-    hold-trigger-key-positions = <KEYS_R THUMBS>;
+    hold-trigger-key-positions = <KEYS_R R3_R THUMBS>;
     hold-trigger-on-release;             // delay positional check until key-release
 )
 
@@ -89,18 +92,29 @@ ZMK_HOLD_TAP(hmr,
     quick-tap-ms = <200>;                // repeat on tap-into-hold
     require-prior-idle-ms = <150>;
     bindings = <&kp>, <&kp>;
-    hold-trigger-key-positions = <KEYS_L THUMBS>;
+    hold-trigger-key-positions = <KEYS_L R3_L THUMBS>;
     hold-trigger-on-release;             // delay positional check until key-release
 )
 
-// left control/space
+// // left control/space
+// ZMK_HOLD_TAP(lct,
+//     flavor = "hold-preferred";
+//     tapping-term-ms = <200>;
+//     quick-tap-ms = <200>;                // repeat on tap-into-hold
+//     require-prior-idle-ms = <200>;
+//     bindings = <&kp>, <&nspc>;
+//     hold-trigger-key-positions = <RH1             RH2            KEYS_L>;
+//                                 //backspace       Shift/space
+// )
+
+// to nav/space
 ZMK_HOLD_TAP(lct,
     flavor = "hold-preferred";
     tapping-term-ms = <200>;
     quick-tap-ms = <200>;                // repeat on tap-into-hold
     require-prior-idle-ms = <200>;
-    bindings = <&kp>, <&nspc>;
-    hold-trigger-key-positions = <RH1             RH2            KEYS_L>;
+    bindings = <&htonmo>, <&nspc>;
+    hold-trigger-key-positions = <R3_L R3_R>;
                                 //backspace       Shift/space
 )
 
@@ -403,7 +417,7 @@ ZMK_HOLD_TAP(ls17,
                 &kp GRAVE &kp Z     &kp X     &kp C     &kp V     &kp B     &npgup    &npgdn    &kp DEL     &kp C_PP  &kp HOME  &kp END   &kp N     &kp M     &ncomma   &nperiod  &kp FSLH  &colc
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤ ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |  MAGIC  |    [    |    ]    |  LEFT   |  RIGHT  |         | Control |  LAYER  |  ENTER  | |   GUI   |BACKSPACE|  SHIFT  |         |   UP    |  DOWN   |  LEFT   |  RIGHT  |  PGDN   |
-                &mc_selw  &kp LBKT  &kp RBKT  &nleft    &nright             &lct CL 0 &mtly 1 1 &kp ENTER   &kp F4    &nbspc    &lsh SL 0           &kp DOWN  &kp UP    &nleft    &nright   &mtly 1 1
+                &mc_selw  &kp LBKT  &kp RBKT  &nleft    &nright             &lct CL 0 &kp ESC   &kp ENTER   &kp F4    &nbspc    &lsh SL 0           &kp DOWN  &kp UP    &nleft    &nright   &mtly 1 1
             // └─────────┴─────────┴─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┘ └─────────┴─────────┴─────────┘         └─────────┴─────────┴─────────┴─────────┴─────────┘
             >;
         };
