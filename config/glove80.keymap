@@ -453,7 +453,7 @@ ZMK_HOLD_TAP(lsr,
                 &mc_selw  &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                                                                  &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    _________
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                                                             ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |   ESC   |    A    |    S    |    D    |    F    |    G    |                                                             |    H    |    J    |    K    |    L    |    '    |  ENTER  |
-                _________ &kp DOWN  &kp UP    &nleft    &nright   _________                                                               &colon    &kp DOWN  &kp UP    &nleft    &nright   &kp SEMI
+                &colc   &hml SR N1 &hml GL N2 &hml AL N3 &hml CL N4 &kp N5                                                                &kp N6  &hmr CR N7 &hmr AR N8 &hmr GR N9 &hmr SR N0 &kp SEMI
             // ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┬─────────┬─────────┐ ┌─────────┬─────────┬─────────┼─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
             // |    `    |    Z    |    X    |    C    |    V    |    B    |  PGUP   |  PGDN   | DELETE  | |   ALT   |  HOME   |   END   |    N    |    M    |    ,    |    .    |    /    |    ;    |
                 &to_num   _________ _________ _________ _________ &kp F17   _________ _________ _________   _________ _________ &kp F17   &clickr   &search   &kp CAPS  &updir    _________ _________
