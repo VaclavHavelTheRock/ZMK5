@@ -70,6 +70,10 @@
 
 #define R3_L    LT5 LT4 LT3 LT2 LT1 LT0
 #define R3_R    RT0 RT1 RT2 RT3 RT4 RT5
+
+#define R3_L    LT5 LT4 LT3 LT2 LT1 LT0
+#define R3_R    RT0 RT1 RT2 RT3 RT4 RT5
+
 #define KEYS_L  LC5 LC4 LC3 LC2 LC1 LN5 LN4 LN3 LN2 LN1 LN0 LM5 LM4 LM3 LM2 LM1 LM0 LB5 LB4 LB3 LB2 LB1 LB0 LF5 LF4 LF3 LF2 LF1 // left-hand keys
 #define KEYS_R  RC5 RC4 RC3 RC2 RC1 RN5 RN4 RN3 RN2 RN1 RN0 RM5 RM4 RM3 RM2 RM1 RM0 RB5 RB4 RB3 RB2 RB1 RB0 RF5 RF4 RF3 RF2 RF1 // rght-hand keys
 #define THUMBS  LH5 LH4 LH3 RH3 RH4 RH5 LH2 LH1 LH0 RH0 RH1 RH2
@@ -410,6 +414,12 @@ ZMK_HOLD_TAP(lsr,
             bindings = <&kp DOT>, <&kp LS(N0)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
+        nselw: new_select_word{                             // Shift + BSPC  = DELETE                   (Click Left of Screen)
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&mc_selw>, <&kp LA(F4)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
+        };
         // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     };
 
@@ -429,12 +439,12 @@ ZMK_HOLD_TAP(lsr,
                 &kp MINUS  &kp Q      &kp W      &kp E      &kp R      &kp T                                                                          &kp Y      &kp U      &kp I      &kp O      &kp P      &kp EQUAL
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    ;     |    A     |    S     |    D     |    F     |    G     |                                                                   |    H     |    J     |    K     |    L     |    '     |  ENTER   |
-                &kp ESC    &hml SR A  &hml GL S  &hml AL D  &hml CL F  &kp G                                                                          &kp H      &hmr CR J  &hmr AR K  &hmr GR L  &hmr SR SQT &kp ENTER
+                &kp SEMI   &hml SR A  &hml GL S  &hml AL D  &hml CL F  &kp G                                                                          &kp H      &hmr CR J  &hmr AR K  &hmr GR L  &hmr SR SQT &kp ENTER
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-            // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     |    ;     |
+            // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
                 &kp GRAVE  &kp Z      &kp X      &kp C      &kp V      &kp B      &npgup     &npgdn     &kp DEL      &kp C_PP   &kp HOME   &kp END    &kp N      &kp M      &ncomma    &nperiod   &kp FSLH   &colc
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-            // |          |    [     |    ]     |   LEFT   |  RIGHT   |          |  SPACE   |  LAYER   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   UP     |  DOWN    |  LEFT    |  RIGHT   |  MOERGO  |
+            // |          |    [     |    ]     |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   UP     |  DOWN    |  LEFT    |  RIGHT   |  MOERGO  |
                 &mc_selw   &kp LBKT   &kp RBKT   &nleft     &nright               &lct CL 0  &kp ESC    &kp ENTER    &kp F4     &nbspc     &lsh SL 0             &kp DOWN   &kp UP     &nleft     &nright    &mtly 1 1
             // └──────────┴──────────┴──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┘ └──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┴──────────┴──────────┘
             >;
@@ -451,16 +461,16 @@ ZMK_HOLD_TAP(lsr,
                 __________ __________ __________ __________ __________ __________                                                                     __________ __________ __________ __________ __________ __________
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    -     |    Q     |    W     |    E     |    R     |    T     |                                                                   |    Y     |    U     |    I     |    O     |    P     |    =     |
-                &mc_selw   &kp N1     &kp N2     &kp N3     &kp N4     &kp N5                                                                         &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     __________
+                __________ __________ __________ __________ __________ __________                                                                     __________ __________ __________ __________ __________ __________
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    ;     |    A     |    S     |    D     |    F     |    G     |                                                                   |    H     |    J     |    K     |    L     |    '     |  ENTER   |
-                &kp SEMI   &hml SR N1 &hml GL N2 &hml AL N3 &hml CL N4 &kp N5                                                                         &kp N6     &hmr CR N7 &hmr AR N8 &hmr GR N9 &hmr SR N0 &kp SEMI
+                __________ &hml SR N1 &hml GL N2 &hml AL N3 &hml CL N4 &kp N5                                                                         &kp N6     &hmr CR N7 &hmr AR N8 &hmr GR N9 &hmr SR N0 &kp SEMI
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-            // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |   A LT   |  HOM E   |   END    |    N     |    M     |    ,     |    .     |    /     |    ;     |
-                &to_num    __________ __________ __________ __________ &kp F17    __________ __________ __________   __________ __________ &kp F17    &clickr    &search    &kp CAPS   &updir     __________ __________
+            // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
+                &to_num    __________ __________ __________ __________ &kp F17    __________ __________ __________   __________ __________ &kp F17    &clickr    &search    &kp CAPS   &updir     __________ &mc_selw
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-            // |          |    [     |    ]     |   LEFT   |  RIGHT   |          |  SPACE   |  LAYER   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   UP     |  DOWN    |  LEFT    |  RIGHT   |  MOERGO  |
-           &rgb_ug RGB_TOG __________ __________ &kp PREV   &kp NEXT              __________ &to_hom    __________   &kp C_PP   __________  &lsr SL 0            &kp VOLDN  &kp VOLUP  &kp PREV   &kp NEXT   &to_hom
+            // |          |    [     |    ]     |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   UP     |  DOWN    |  LEFT    |  RIGHT   |  MOERGO  |
+           &rgb_ug RGB_TOG __________ __________ &kp PREV   &kp NEXT              __________ &to_hom    __________   &kp C_PP   __________ &lsr SL 0             &kp VOLDN  &kp VOLUP  &kp PREV   &kp NEXT   &to_hom
             // └──────────┴──────────┴──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┘ └──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┴──────────┴──────────┘
             >;
         };
@@ -475,15 +485,15 @@ ZMK_HOLD_TAP(lsr,
                 &BL        XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX &kp HOME                                                                       &kp LPAR   &kp NUM    &kp NPEQ   &kp NPDV   &kp NPMP   &BL
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    -     |    Q     |    W     |    E     |    R     |    T     |                                                                   |    Y     |    U     |    I     |    O     |    P     |    =     |
-              &out OUT_USB &none      XXXXXXXXXX &kp UP     XXXXXXXXXX &kp END                                                                        &kp RPAR   &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp NPMN   &kp SLCK
+              &out OUT_USB XXXXXXXXXX XXXXXXXXXX &kp UP     XXXXXXXXXX &kp END                                                                        &kp RPAR   &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp NPMN   &kp SLCK
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    ;     |    A     |    S     |    D     |    F     |    G     |                                                                   |    H     |    J     |    K     |    L     |    '     |  ENTER   |
            &rgb_ug RGB_EFF XXXXXXXXXX &kp LEFT   &kp DOWN   &kp RIGHT  &kp PG_UP                                                                      &kp PRCNT  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp NPPL   XXXXXXXXXX
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-            // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |   A LT   |  HOM E   |   END    |    N     |    M     |    ,     |    .     |    /     |    ;     |
+            // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
                 &to_nav    &kp CMENU  XXXXXXXXXX &kp F11    &kp F12    &kp PG_DN  &bt_1      &bt_3      &bt_3        __________ __________ __________ &kp COMMA  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp NPEN   &to_gam
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-            // |          |    [     |    ]     |   LEFT   |  RIGHT   |          | Contro l |  LAYER   |  ENTER   | |   G UI   |BACKS PACE|  SHIF T  |          |   UP     |  DOWN    |  LEFT    |  RIGHT   |  MOERGO  |
+            // |          |    [     |    ]     |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   UP     |  DOWN    |  LEFT    |  RIGHT   |  MOERGO  |
                 __________ &kp CAPS   &kp INS    &kp F11    &kp F12               &bt_0      __________ &out OUT_USB __________ __________ __________            &kp KP_N0  &kp KP_N0  &kp NPDT   &kp NPEN   __________
             // └──────────┴──────────┴──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┘ └──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┴──────────┴──────────┘
             >;
@@ -504,10 +514,10 @@ ZMK_HOLD_TAP(lsr,
             // |    ;     |    A     |    S     |    D     |    F     |    G     |                                                                   |    H     |    J     |    K     |    L     |    '     |  ENTER   |
                 &kp ESC    &kp DOWN   &kp UP     &nleft     &nright    XXXXXXXXXX                                                                     XXXXXXXXXX &kp DOWN   &kp UP     &nleft     &nright    &kp ESC
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-            // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |   A LT   |  HOM E   |   END    |    N     |    M     |    ,     |    .     |    /     |    ;     |
+            // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
                 XXXXXXXXXX XXXXXXXXXX &kp CR     &kp SL     &kp TAB    XXXXXXXXXX &dblsp     __________ __________   __________ __________ &dblsp     XXXXXXXXXX &kp TAB    &kp SR     &kp CR     XXXXXXXXXX &to_num
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
-            // |          |    [     |    ]     |   LEFT   |  RIGHT   |          | Contro l |  LAYER   |  ENTER   | |   G UI   |BACKS PACE|  SHIF T  |          |   UP     |  DOWN    |  LEFT    |  RIGHT   |  MOERGO  |
+            // |          |    [     |    ]     |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   UP     |  DOWN    |  LEFT    |  RIGHT   |  MOERGO  |
                 XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX            &mt NCTRL  &kp ENTER  __________   __________ &kp ENTER  &mt SFSP              &turboc    XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX XXXXXXXXXX
             // └──────────┴──────────┴──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┘ └──────────┴──────────┴──────────┘          └──────────┴──────────┴──────────┴──────────┴──────────┘
             >;
