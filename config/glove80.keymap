@@ -78,6 +78,20 @@
 #define KEYS_R  RC5 RC4 RC3 RC2 RC1 RN5 RN4 RN3 RN2 RN1 RN0 RM5 RM4 RM3 RM2 RM1 RM0 RB5 RB4 RB3 RB2 RB1 RB0 RF5 RF4 RF3 RF2 RF1 // rght-hand keys
 #define THUMBS  LH5 LH4 LH3 RH3 RH4 RH5 LH2 LH1 LH0 RH0 RH1 RH2
 
+/*                               GLOVE80 KEY MATRIX / LAYOUT MAPPING
+ ╭────────────────────╮       ╭────────────────────╮ ╭────────────────────╮       ╭────────────────────╮
+ │  0   1   2   3   4 ╰───┬───╯  5   6   7   8   9 │ │ LC5 LC4 LC3 LC2 LC1╰───┬───╯ RC1 RC2 RC3 RC4 RC5│
+ │ 10  11  12  13  14  15 │ 16  17  18  19  20  21 │ │ LN5 LN4 LN3 LN2 LN1 LN0│ RN0 RN1 RN2 RN3 RN4 RN5│
+ │ 22  23  24  25  26  27 │ 28  29  30  31  32  33 │ │ LT5 LT4 LT3 LT2 LT1 LT0│ RT0 RT1 RT2 RT3 RT4 RT5│
+ │ 34  35  36  37  38  39 │ 40  41  42  43  44  45 │ │ LM5 LM4 LM3 LM2 LM1 LM0│ RM0 RM1 RM2 RM3 RM4 RM5│
+ │ 46  47  48  49  50  51 │ 58  59  60  61  62  63 │ │ LB5 LB4 LB3 LB2 LB1 LB0│ RB0 RB1 RB2 RB3 RB4 RB5│
+ │ 64  65  66  67  68 ╭───┴───╮ 75  76  77  78  79 │ │ LF5 LF4 LF3 LF2 LF1╭───┴───╮ RF1 RF2 RF3 RF4 RF5│
+ ╰───────────┬────────┴───┬───┴────────┬───────────╯ ╰───────────┬────────┴───┬───┴────────┬───────────╯
+             │ 52  53  54 │ 55  56  57 │                         │ LH5 LH4 LH3│ RH3 RH4 RH5│
+             │ 69  70  71 │ 72  73  74 │                         │ LH2 LH1 LH0│ RH0 RH1 RH2│
+             ╰────────────┴────────────╯                         ╰────────────┴────────────╯
+ */
+
 /* left-hand HRMs */
 ZMK_HOLD_TAP(hml,
     flavor = "balanced";
@@ -118,7 +132,7 @@ ZMK_HOLD_TAP(lct,
     quick-tap-ms = <200>;                // repeat on tap-into-hold
     require-prior-idle-ms = <200>;
     bindings = <&htonmo>, <&nspc>;
-    hold-trigger-key-positions = <R4_L R4_R RM0 RM5 RH2>;
+    hold-trigger-key-positions = <R4_L R4_R RM0 RM5 RH2 RH4 RH5>;
                                 //backspace       Shift/space
 )
 
@@ -270,6 +284,18 @@ ZMK_HOLD_TAP(lsr,
             bindings
                 = <&macro_wait_time 50>
                 , <&macro_tap &kp F19 &mkp LCLK>
+                ;
+        };
+        kalshi: kalshi_buy{
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_wait_time 100>
+                , <&kp TAB>
+                , <&kp ENTER>
+                , <&kp TAB>
+                , <&kp TAB>
+                , <&kp ENTER>
                 ;
         };
         updir: up_directory {
@@ -467,7 +493,7 @@ ZMK_HOLD_TAP(lsr,
                 __________ &hml SR N1 &hml GL N2 &hml AL N3 &hml CL N4 &kp N5                                                                         &kp N6     &hmr CR N7 &hmr AR N8 &hmr GR N9 &hmr SR N0 &kp SEMI
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
-                &to_num    __________ __________ __________ __________ &kp F17    __________ __________ __________   __________ __________ &kp F17    &clickr    &search    &kp CAPS   &updir     __________ &mc_selw
+                &to_num    __________ __________ __________ __________ &kp F17    __________ __________ __________   __________ &kalshi    &kp F17    &clickr    &search    &kp CAPS   &updir     __________ &mc_selw
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |          |    [     |    ]     |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   UP     |  DOWN    |  LEFT    |  RIGHT   |  MOERGO  |
            &rgb_ug RGB_TOG __________ __________ &kp PREV   &kp NEXT              __________ &to_hom    __________   &kp C_PP   __________ &lsr SL 0             &kp VOLDN  &kp VOLUP  &kp PREV   &kp NEXT   &to_hom
