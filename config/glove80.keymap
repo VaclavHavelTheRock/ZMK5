@@ -291,10 +291,10 @@ ZMK_HOLD_TAP(lsr,
             #binding-cells = <0>;
             bindings
                 = <&macro_wait_time 100>
-                , <&kp TAB>
                 , <&kp ENTER>
-                , <&kp TAB>
-                , <&kp TAB>
+                , <&macro_wait_time 200>
+                , <&kp F17>
+                , <&kp F17>
                 , <&kp ENTER>
                 ;
         };
