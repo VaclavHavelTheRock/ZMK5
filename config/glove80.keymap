@@ -347,7 +347,7 @@ ZMK_HOLD_TAP(lsr,
                 , <&macro_tap &kp F17>
                 , <&macro_release &kp LSHFT>
                 ;
-        }
+        };
         mc_selw: mc_select_word {
             compatible = "zmk,behavior-macro";
             wait-ms = <0>;
