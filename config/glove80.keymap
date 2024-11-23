@@ -132,7 +132,7 @@ ZMK_HOLD_TAP(lct,
     quick-tap-ms = <200>;                // repeat on tap-into-hold
     require-prior-idle-ms = <200>;
     bindings = <&htonmo>, <&nspc>;
-    hold-trigger-key-positions = <R4_L R4_R RM0 RM5 RH2 RH4 RH5>;
+    hold-trigger-key-positions = <R4_L R4_R RM0 RM5 RH2 RH4 RH5 RT1 RT2 RT3 RT4 LT3 LT2>;
                                 //backspace       Shift/space
 )
 
@@ -337,6 +337,17 @@ ZMK_HOLD_TAP(lsr,
                 , <&macro_release &kp LSHFT>
                 ;
         };
+        btb: back_tab_firefox {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp F17>
+                , <&macro_release &kp LSHFT>
+                ;
+        }
         mc_selw: mc_select_word {
             compatible = "zmk,behavior-macro";
             wait-ms = <0>;
@@ -493,7 +504,7 @@ ZMK_HOLD_TAP(lsr,
                 __________ &hml SR N1 &hml GL N2 &hml AL N3 &hml CL N4 &kp N5                                                                         &kp N6     &hmr CR N7 &hmr AR N8 &hmr GR N9 &hmr SR N0 &kp SEMI
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┬──────────┬──────────┐ ┌──────────┬──────────┬──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    `     |    Z     |    X     |    C     |    V     |    B     |   PGUP   |   PGDN   |  DELETE  | |  System  |   HOME   |   END    |    N     |    M     |    ,     |    .     |    /     | Control  |
-                &to_num    &kp LBKT   &kp RBKT   __________ __________ &kp F17    __________ __________ __________   __________ &kalshi    &kp F17    &clickr    &search    &kp CAPS   &updir     __________ &mc_selw
+                &to_num    &kp LBKT   &kp RBKT   __________ __________ &kp F17    __________ __________ __________   &kalshi    &btb       &kp F17    &clickr    &search    &kp CAPS   &updir     __________ &mc_selw
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤ ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |          |    [     |    ]     |   LEFT   |  RIGHT   |          |  SPACE   |    ESC   |  ENTER   | |    F4    |BACKSPACE |  SHIFT   |          |   UP     |  DOWN    |  LEFT    |  RIGHT   |  MOERGO  |
            &rgb_ug RGB_TOG __________ __________ &kp PREV   &kp NEXT              __________ &to_hom    __________   &kp C_PP   __________ &lsr SL 0             &kp VOLDN  &kp VOLUP  &kp PREV   &kp NEXT   &to_hom
