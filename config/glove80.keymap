@@ -116,7 +116,7 @@ ZMK_HOLD_TAP(hmr,
 ZMK_HOLD_TAP(lct,
     flavor = "hold-preferred";
     tapping-term-ms = <200>;
-    quick-tap-ms = <200>;                // repeat on tap-into-hold
+    // quick-tap-ms = <200>;                // repeat on tap-into-hold
     require-prior-idle-ms = <200>;
     bindings = <&htonmo>, <&nspc>;
     hold-trigger-key-positions = <R4_L R4_R RM0 RM5 RH2 RH4 RH5 RT1 RT2 RT3 RT4 LT3 LT2>;
@@ -499,7 +499,7 @@ ZMK_HOLD_TAP(lsr,
                 __________ __________ __________ __________ __________ __________                                                                     __________ __________ __________ __________ __________ __________
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    -     |    Q     |    W     |    E     |    R     |    T     |                                                                   |    Y     |    U     |    I     |    O     |    P     |    =     |
-                __________ __________ &kp MINUS  &kp GRAVE  __________ __________                                                                     __________ &colon     &kp SEMI   &kp EQUAL  &kp BSLH   __________
+                __________ __________ &kp MINUS  &kp GRAVE  &kp MINUS  __________                                                                     __________ &colon     &kp SEMI   &kp EQUAL  &kp BSLH   __________
             // ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤                                                                   ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤
             // |    ;     |    A     |    S     |    D     |    F     |    G     |                                                                   |    H     |    J     |    K     |    L     |    '     |  ENTER   |
                 __________ &hml SR N1 &hml GL N2 &hml AL N3 &hml CL N4 &kp N5                                                                         &kp N6     &hmr CR N7 &hmr AR N8 &hmr GR N9 &hmr SR N0 &kp SEMI
